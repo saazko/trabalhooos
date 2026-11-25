@@ -1,0 +1,99 @@
+use("estoque");
+/*
+db.produtos.insertMany(
+    [
+        {
+            categoria_id: 1,
+            nome: "Notebook",
+            preco: 3500,
+            fornecedor_id: 101,
+            estoque: 10
+        },
+        {
+            categoria_id: 2,
+            nome: "Mesa",
+            preco: 300,
+            fornecedor_id: 101,
+            estoque: 10  
+        }
+    ]
+);
+*/
+ 
+db.categorias.insertMany([
+ 
+    { _id: 1, nome: "Eletrônicos" },
+   
+    { _id: 2, nome: "Acessórios" }
+   
+   
+]);
+ 
+    db.fornecedores.insertMany([
+ 
+        { _id: 101, nome: "Tech Distribuidora", contato: "123456789" },
+       
+        { _id: 102, nome: "Smart Imports", contato: "987654321" }
+       
+        ])
+ 
+       
+       
+ 
+def responder(pergunta):
+    pergunta = pergunta.lower()
+ 
+    if pergunta == "o que é mongodb?":
+        return "O MongoDB é um sistema de gerenciamento de banco de dados NoSQL orientado a documentos, de código aberto e alta performance."
+ 
+    elif pergunta == "o que é api?":
+        return "API é uma forma de comunicação entre sistemas."
+ 
+    elif pergunta == "o que é ia?":
+        return "A Inteligência Artificial (IA) é um campo da ciência da computação que desenvolve sistemas e programas capazes de simular o raciocínio e o comportamento humano. Em vez de apenas seguir ordens fixas, a IA analisa grandes volumes de dados, identifica padrões e aprende com eles para tomar decisões, resolver problemas ou criar novos conteúdos de forma autônoma."
+ 
+    elif pergunta == "o que é python?":
+        return "O Python é uma linguagem de programação de alto nível, interpretada, de propósito geral e de código aberto, criada por Guido van Rossum e lançada em 1991."
+ 
+    elif pergunta == "o que é git?":
+        return "O Git é um sistema de controle de versão distribuído, livre e de código aberto. Criado em 2005 por Linus Torvalds (o mesmo criador do Linux), ele serve para rastrear e gerenciar alterações em códigos-fonte e arquivos de um projeto."
+ 
+    return "Desculpe, ainda não sei responder essa pergunta."
+ 
+ 
+pergunta = input("Qual é a dúvida?: ")
+print(responder(pergunta))
+ 
+documentos = [
+ 
+    {
+ 
+        “titulo”: “Estruturas de repetição”,
+        “conteudo”:
+        “Estruturas de repetição permitem executar comandos várias vezes.”
+ 
+    },
+ 
+    {
+ 
+        “titulo”: “Python”,
+        “conteudo”:
+        “Python é uma linguagem usada em IA.”
+ 
+    }
+ 
+]
+ 
+ 
+ 
+ 
+def recuperar_documento(pergunta):
+    pergunta = pergunta.lower()
+    documento_relevante = None
+    for doc in documentos:
+        if doc[“titulo”].lower() in pergunta:
+            documento_relevante = doc[“conteudo”]
+    return documento_relevante
+ 
+historico_conversa = []
+ 
